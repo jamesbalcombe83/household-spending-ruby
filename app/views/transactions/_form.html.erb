@@ -21,8 +21,7 @@
      <%= form.select :store_id, options_from_collection_for_select(@stores, :id, :name, @store) %> 
 <%
 =end%>
-    <%= form.label :store_id, "Store" %>
-    <%= form.collection_select :store_id, Store.where(user_id: current_user.id).order(:name), :id, :name, { class:"form-control", aria:".form-select-sm example"}  %>
+    <%= form.collection_select :store_id, Store.where(user_id: current_user.id).order(:name), :id, :name, {prompt: "Choose a store"}, {class:"form-select", aria:"multiple select example"} %>
   </div>
 
   <div class="field mb-3">
