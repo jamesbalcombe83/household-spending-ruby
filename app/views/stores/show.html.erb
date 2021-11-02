@@ -1,0 +1,16 @@
+<div class="h-100 p-5 bg-light border rounded-3">
+  <h2>
+    <%= @store.name %> - 
+    <%= @store.location %>
+  </h2>
+
+  <p>
+    <strong>Store type:</strong>
+    <%= @store.store_type %>
+  </p>
+
+  <%= link_to 'Edit', edit_store_path(@store), class:"btn btn-outline-secondary" %>
+  <%= link_to 'Back', stores_path, class:"btn btn-outline-secondary" %>
+
+</div>
+
