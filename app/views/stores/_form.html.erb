@@ -23,6 +23,10 @@
     <%= form.text_field :store_type, class:"form-control", placeholder:"Type" %>
   </div>
 
+   <div class="field mb-3">
+    <%= form.number_field :user_id, id: :stores_user_id, class:"form-control", value: current_user.id %>
+  </div>
+
   <div class="actions">
     <%= form.submit class:"btn btn-success" %>
   </div>

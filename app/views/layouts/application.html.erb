@@ -17,8 +17,8 @@
   <%= render 'index/navbar' %>
   <br>
     <div class="container">
-      <% if notice %>
-        <%= render 'layouts/alerts' %>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key} alert alert-warning alert-dismissible fade show" %>
       <% end %>
       <%= yield %>
     </div>

@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   before_action :set_store, only: %i[ show edit update destroy ]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /stores or /stores.json
   def index
@@ -12,7 +13,8 @@ class StoresController < ApplicationController
 
   # GET /stores/new
   def new
-    @store = Store.new
+    @store = current_user.stores.build
+    #Store.new
   end
 
   # GET /stores/1/edit
@@ -21,7 +23,8 @@ class StoresController < ApplicationController
 
   # POST /stores or /stores.json
   def create
-    @store = Store.new(store_params)
+    #@store = Store.new(store_params)
+    @store = current_user.stores.build(store_params)
 
     respond_to do |format|
       if @store.save
@@ -56,6 +59,12 @@ class StoresController < ApplicationController
     end
   end
 
+  def correct_user
+    #checks for the store by looking at the associated ids in the user
+    @store = current_user.stores.find_by(id: params[:id])
+    redirect_to stores_path, notice: "Not authorised" if @store.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_store
@@ -64,6 +73,6 @@ class StoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def store_params
-      params.require(:store).permit(:name, :location, :store_type)
+      params.require(:store).permit(:name, :location, :store_type, :user_id)
     end
 end
