@@ -1,0 +1,41 @@
+<%= form_with(model: transaction) do |form| %>
+  <% if transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <% form.text_field :user_id %>
+  </div>
+
+  <div class="field mb-3">
+<%
+=begin%>
+     <%= form.select :store_id, options_from_collection_for_select(@stores, :id, :name, @store) %> 
+<%
+=end%>
+    <%= form.label :store_id, "Store" %>
+    <%= form.collection_select :store_id, Store.where(user_id: current_user.id).order(:name), :id, :name, { class:"form-control", aria:".form-select-sm example"}  %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :category_id %>
+    <%= form.text_field :category_id %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, class:"form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
