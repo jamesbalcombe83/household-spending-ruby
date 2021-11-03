@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.where(user_id: current_user.id)
   end
 
   # GET /categories/1 or /categories/1.json
@@ -23,8 +23,8 @@ class CategoriesController < ApplicationController
 
   # POST /categories or /categories.json
   def create
+    @category = current_user.categories.build(category_params)
     #@category = Category.new(category_params)
-    @category = current_user.catagories.build(category_params)
 
     respond_to do |format|
       if @category.save
@@ -61,8 +61,8 @@ class CategoriesController < ApplicationController
 
   def correct_user
     #checks for the catagory by looking at the associated ids in the user
-    @catagory = current_user.catagories.find_by(id: params[:id])
-    redirect_to catagories_path, notice: "Not authorised" if @catagory.nil?
+    @catagory = current_user.categories.find_by(id: params[:id])
+    redirect_to categories_path, notice: "Not authorised" if @catagory.nil?
   end
 
   private

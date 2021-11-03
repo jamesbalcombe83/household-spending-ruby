@@ -1,9 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Transactions</h1>
 
-<table>
-  <thead>
+<%= form_tag transactions_path, method: :get do %>
+  <div class="input-group mb-3">
+    <%= label :month, "Filter by month:", class:"input-group-text" %>
+    <%= month_field_tag :month, params[:month], class: "form-control" %>
+    <%= submit_tag "Filter", class: "btn btn-secondary" %>
+  </div>
+  <% end %>
+
+<br/>
+<table class="table table-sm table-hover table-bordered table-striped">
+  <thead class="table-dark" onChange=>
     <tr>
       <th>User</th>
       <th>Store</th>
@@ -16,10 +23,10 @@
   <tbody>
     <% @transactions.each do |transaction| %>
       <tr>
-        <td><%= transaction.user_id %></td>
-        <td><%= transaction.store_id %></td>
-        <td><%= transaction.category_id %></td>
-        <td><%= transaction.amount %></td>
+        <td><%= transaction.user.name %></td>
+        <td><%= "#{transaction.store.name} - #{transaction.store.location}" %></td>
+        <td><%= transaction.category.name %></td>
+        <td><%= "¥#{transaction.amount}" %></td>
         <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
         <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,6 +35,8 @@
   </tbody>
 </table>
 
+<p><%= "This months total spending: #{calculateTotal}" %></p>
+
 <br>
 
-<%= link_to 'New Transaction', new_transaction_path %>
+<%= link_to 'New Transaction', new_transaction_path, class: "btn btn-primary" %>

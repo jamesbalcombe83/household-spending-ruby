@@ -1,10 +1,16 @@
 class TransactionsController < ApplicationController
+  include TransactionsHelper
   before_action :set_transaction, only: %i[ show edit update destroy ]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /transactions or /transactions.json
   def index
-    @transactions = Transaction.all
+    if params[:month].present?
+      
+      @transactions = Transaction.where("date_trunc('month', created_at)=? AND user_id=?", params[:month]+"-01", current_user.id)
+    else
+      @transactions = Transaction.where(user_id: current_user.id)
+    end
   end
 
   # GET /transactions/1 or /transactions/1.json
@@ -14,7 +20,6 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = current_user.transactions.build
-    @stores = current_user.stores.build
   end
 
   # GET /transactions/1/edit
@@ -23,7 +28,7 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
-    @transaction = current_user.transactions.build(store_params)
+    @transaction = current_user.transactions.build(transaction_params)
 
     respond_to do |format|
       if @transaction.save
