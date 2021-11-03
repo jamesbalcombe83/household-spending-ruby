@@ -35,8 +35,27 @@
   </tbody>
 </table>
 
-<p><%= "This months total spending: #{calculateTotal}" %></p>
-
-<br>
-
 <%= link_to 'New Transaction', new_transaction_path, class: "btn btn-primary" %>
+<br/>
+<p><%= "This months total spending: #{calculateTotal}" %></p>
+<br/>
+<h1>Charts</h1>
+
+<div class="container">
+  <%= column_chart "charts/user-transactions",
+      library: {
+            title: {text: 'Sporters by age', x: -20},
+            yAxis: {
+              allowDecimals: false,
+              title: {
+                  text: 'Ages count'
+              }
+            },
+            xAxis: {
+              title: {
+                  text: 'Age'
+              }
+            }
+          }
+  %>
+</div>
