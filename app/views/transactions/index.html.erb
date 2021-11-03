@@ -3,7 +3,7 @@
 <%= form_tag transactions_path, method: :get do %>
   <div class="input-group mb-3">
     <%= label :month, "Filter by month:", class:"input-group-text" %>
-    <%= month_field_tag :month, params[:month], class: "form-control"%>
+    <%= month_field_tag :month, params[:month], class: "form-control", value: session[:monthSelected]%>
     <%= submit_tag "Filter", class: "btn btn-secondary" %>
   </div>
   <% end %>
