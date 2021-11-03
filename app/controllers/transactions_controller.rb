@@ -6,7 +6,7 @@ class TransactionsController < ApplicationController
   # GET /transactions or /transactions.json
   def index
     if params[:month].present?
-      
+      session[:selectedMonth] = params[:month]
       @transactions = Transaction.where("date_trunc('month', created_at)=? AND user_id=?", params[:month]+"-01", current_user.id)
     else
       @transactions = Transaction.where(user_id: current_user.id)
@@ -68,6 +68,10 @@ class TransactionsController < ApplicationController
     @transaction = current_user.transactions.find_by(id: params[:id])
     redirect_to transactions_path, notice: "Not authorised" if @transaction.nil?
   end
+
+  #chart paths
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
