@@ -1,12 +1,61 @@
-name,location,store_type
-myBasket,Ookayama,Groceries
-Excelsior,Ookayama,Eatout
-Excelsior,Toritsu Daigaku,Eatout
-conbini,anywhere,Groceries
-yaoya,Ookayama,Groceries
-bunkado,Jiyugaoka,Groceries
-ramen,anywhere,Eatout
-sushi,anywhere,Eatout
-curry,anywhere,Eatout
-italian,anywhere,Eatout
-rehabilitation,Jiyugaoka,Medical
+name,location,store_type,user_id
+7-11,Toritsu Daigaku,Snacks,1
+Abc,Shibuya,Clothing,1
+Aeon,Himonya,Groceries,1
+Biblotech,Jiyugaoka,Eat out,1
+Bricolage,Roppongi,Eat out,1
+Bunkado,Jiyugaoka,Groceries,1
+Chicken,UberEats,Eat out,1
+Coffee,Jiyugaoka,Eat out,1
+Conbini,Toritsu Daigaku,Snacks,1
+Cucoce,Jiyugaoka,Groceries,1
+Curry,UberEats,Eat out,1
+Dominos,Online,Eat out,1
+Drugstore,Toritsu Daigaku,Medical,1
+Eneos,Toritsu Daigaku,Fuel,1
+Excelsior,Toritsu Daigaku,Eat out,1
+Excelsior,Ookayama,Eat out,1
+Falafel Bros,Roppongi,Eat out,1
+Fishchips,Roppongi,Eat out,1
+Giant Repair,Toritsu Daigaku,Other,1
+Gyoza,Toritsu Daigaku,Eat out,1
+Habili,Jiyugaoka,Medical,1
+Hamburg,Ookayama,Eat out,1
+Hanamasa,Toritsu Daigaku,Groceries,1
+Idemitsu,Toritsu Daigaku,Fuel,1
+Itokito,Jiyugaoka,Groceries,1
+Jppost,Toritsu Daigaku,Postage,1
+Kakuyasu,Toritsu Daigaku,Groceries,1
+Kaldi,Ookayama,Groceries,1
+Kohikan,Ookayama,Eat out,1
+Kokokara,Toritsu Daigaku,Medical,1
+Lasagne,Sangenjaya,Eat out,1
+Lawson,Toritsu Daigaku,Snacks,1
+Maritozzo,Nakameguro,Groceries,1
+Matsuya,Toritsu Daigaku,Eat out,1
+Medical,Anywhere,Medical,1
+Mexican,Online,Eat out,1
+Moonpig,Online,Other,1
+Mybasket,Ookayama,Groceries,1
+Nagano,Ookayama,Groceries,1
+Onsen,anywhere,Other,1
+Pasta,Nakameguro,Eat out,1
+Ramen,Nakameguro,Eat out,1
+Rehabilitation,Jiyugaoka,Medical,1
+Saboten,Toritsu Daigaku,Eat out,1
+Seijo,Jiyugaoka,Groceries,1
+Shakeshack,Futakotamagawa,Eat out,1
+Soup Curry,UberEats,Eat out,1
+Starbucks,Jiyugaoka,Eat out,1
+Sushi,Toritsu Daigaku,Eat out,1
+Taxi,anywhere,Other,1
+Thai,Jiyugaoka,Eat out,1
+Tiger,Futakotamagawa,Household,1
+Tokyu,Toritsu Daigaku,Groceries,1
+Tonkatsu,Jiyugaoka,Eat out,1
+Transparente,Toritsu Daigaku,Eat out,1
+Tsuruha,Toritsu Daigaku,Medical,1
+Uber,Online,Other,1
+Yanaka,Ookayama,Groceries,1
+Yaoya,Ookayama,Groceries,1
+

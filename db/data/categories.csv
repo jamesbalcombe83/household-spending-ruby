@@ -1,4 +1,13 @@
-name,used_id
-Groceries,1
-Eatout,1
-Medical,1
+user_id,name
+1,Clothing
+1,Coffee
+1,Eat Out
+1,Fuel
+1,Gift
+1,Groceries
+1,Household
+1,Medical
+1,Medication
+1,Other
+1,Postage
+1,Snacks
