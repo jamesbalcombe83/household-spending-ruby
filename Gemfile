@@ -26,9 +26,9 @@ gem "chartkick"
 gem 'bootstrap', '~> 5.1'
 gem 'jquery-rails', '~> 4.4'
 gem 'groupdate'
+ gem 'pagy', '~> 5.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
- gem 'pagy', '~> 5.1'
 
 
 # Reduces boot times through caching; required in config/boot.rb
