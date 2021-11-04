@@ -10,4 +10,7 @@ class ChartsController < ApplicationController
     def byWeek
         render json: Transaction.group_by_week(:created_at, last: 4).sum(:amount)
     end
+    def byMonth
+        render json: Transaction.group_by_month(:created_at).sum(:amount).transform_keys.with_index{ |key, i| key.strftime("%b %Y") }
+    end
 end

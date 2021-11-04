@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+canvas {
+    margin: 15px;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px #ccc;
+}
+

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :charts do
     get "byStore"
     get "byCategory"
+    get "byMonth"
     get "byWeek"
   end
 

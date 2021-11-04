@@ -7,11 +7,11 @@ class TransactionsController < ApplicationController
   def index
     if params[:month].present?
       session[:selectedMonth] = params[:month]
-      @transactions = Transaction.where("date_trunc('month', created_at)=? AND user_id=?", params[:month]+"-01", current_user.id)
+      @pagy, @transactions = pagy(Transaction.where("date_trunc('month', created_at)=? AND user_id=?", params[:month]+"-01", current_user.id), items: 10)
     else
       session[:selectedMonth] = Time.now.strftime("%Y-%m")
       puts("no month", session[:selectedMonth])
-      @transactions = Transaction.where("date_trunc('month', created_at)=? AND user_id=?", session[:selectedMonth]+"-01", current_user.id)
+      @pagy, @transactions = pagy(Transaction.where("date_trunc('month', created_at)=? AND user_id=?", session[:selectedMonth]+"-01", current_user.id), items: 10)
     end
   end
 
