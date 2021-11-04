@@ -9,7 +9,9 @@ class TransactionsController < ApplicationController
       session[:selectedMonth] = params[:month]
       @transactions = Transaction.where("date_trunc('month', created_at)=? AND user_id=?", params[:month]+"-01", current_user.id)
     else
-      @transactions = Transaction.where(user_id: current_user.id)
+      session[:selectedMonth] = Time.now.strftime("%Y-%m")
+      puts("no month", session[:selectedMonth])
+      @transactions = Transaction.where("date_trunc('month', created_at)=? AND user_id=?", session[:selectedMonth]+"-01", current_user.id)
     end
   end
 

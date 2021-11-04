@@ -1,0 +1,12 @@
+name,location,store_type
+myBasket,Ookayama,Groceries
+Excelsior,Ookayama,Eatout
+Excelsior,Toritsu Daigaku,Eatout
+conbini,anywhere,Groceries
+yaoya,Ookayama,Groceries
+bunkado,Jiyugaoka,Groceries
+ramen,anywhere,Eatout
+sushi,anywhere,Eatout
+curry,anywhere,Eatout
+italian,anywhere,Eatout
+rehabilitation,Jiyugaoka,Medical

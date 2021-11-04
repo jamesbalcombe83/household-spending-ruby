@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_232404) do
     t.string "store_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_232404) do
   end
 
   add_foreign_key "categories", "users"
+  add_foreign_key "stores", "users"
   add_foreign_key "transactions", "categories"
   add_foreign_key "transactions", "stores"
   add_foreign_key "transactions", "users"

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root 'index#index'
 
   namespace :charts do
-    get "user-transactions"
+    get "byStore"
+    get "byCategory"
+    get "byWeek"
   end
 
 end
