@@ -17,6 +17,11 @@ Install this project with bundler
   rails db:setup
 ```
 
+## Run locally
+```bash
+  rails s
+```
+
 ## Documentation
 
 Additional gems used
